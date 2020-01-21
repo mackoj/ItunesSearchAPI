@@ -2,7 +2,7 @@ import Foundation
 
 extension String : Error {}
 
-struct ItunesSearchClient {
+public struct ItunesSearchClient {
   static var shared : ItunesSearchClient?
   
   static public func getAppInfo(_ id : String, _ completion : @escaping (Result<ItunesSearch, Error>)->Void) throws {
