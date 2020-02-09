@@ -1,11 +1,18 @@
 import XCTest
-@testable import ItunesSearchAPI
+import NIO
+import NIOHTTP1
+import AsyncHTTPClient
+@testable import ItunesSearchAPIClient
 
-final class ItunesSearchAPITests: XCTestCase {
+final class ItunesSearchAPIClientTests: XCTestCase {
+  var httpClient : HTTPClient = {
+    return HTTPClient(eventLoopGroupProvider: .createNew)
+  }()
+  
   func testExample() {
     do {
-      try ItunesSearchClient.getAppInfo("284910350") { (res) in
-        switch res {
+      try httpClient.getProductVersion(itcAppID: "284910350", { result in
+        switch result {
         case .success(let search):
           print(search)
           let trackID : Int! = search.results?.first?.trackId
@@ -13,7 +20,7 @@ final class ItunesSearchAPITests: XCTestCase {
         case .failure(let err):
           print(err)
         }
-      }
+      })
     } catch {
       print(error)
     }

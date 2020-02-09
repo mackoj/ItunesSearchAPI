@@ -3,5 +3,5 @@ import XCTest
 import ItunesSearchAPITests
 
 var tests = [XCTestCaseEntry]()
-tests += ItunesSearchAPITests.allTests()
+tests += ItunesSearchAPIClientTests.allTests()
 XCTMain(tests)
