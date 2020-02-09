@@ -4,9 +4,10 @@ import NIOHTTP1
 import AsyncHTTPClient
 import ItunesSearchAPI
 
+// TODO: Change this to real error
 extension String : Error {}
 
-struct API {
+struct ItunesSearchClient {
   public static func getProductVersion(httpClient : HTTPClient, itcAppID : String, _ completion : @escaping (Result<ItunesSearch, Error>) -> Void) throws {
     let futureRequest = try getProductVersionRequest(itcAppID: itcAppID)
     httpClient.execute(request: futureRequest)
@@ -26,7 +27,7 @@ struct API {
       ],
       body: nil)
   }
-  
+
   private init() {}
   
   private static func convertFromByteBuffer<T : Codable>(type : T.Type) -> ((_ response : HTTPClient.Response) -> Result<T, Error>) {
