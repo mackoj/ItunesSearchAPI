@@ -31,7 +31,7 @@ public struct ItunesSearchResult: Equatable, Codable {
     public let fileSizeBytes: String?
     public let sellerUrl: String?
     public let contentAdvisoryRating: String?
-    public let averageUserRatingForCurrentVersion: Int?
+    public let averageUserRatingForCurrentVersion: Double?
     public let userRatingCountForCurrentVersion: Int?
     public let trackViewUrl: String?
     public let trackContentRating: String?
@@ -56,6 +56,6 @@ public struct ItunesSearchResult: Equatable, Codable {
     public let price: Int?
     public let resultDescription: String?
     public let bundleId: String?
-    public let averageUserRating: Int?
+    public let averageUserRating: Double?
     public let userRatingCount: Int?
 }
